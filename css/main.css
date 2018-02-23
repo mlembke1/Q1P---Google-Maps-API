@@ -28,8 +28,8 @@ html, body {
 }
 
 .pac-card {
-  margin: 10px 10px 0 0;
-  border-radius: 2px 0 0 2px;
+  margin: 20px 10px 0 0;
+  border-radius: 5px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   outline: none;
@@ -66,13 +66,16 @@ html, body {
 }
 
 #pac-input:focus {
-  border-color: #4d90fe;
+  outline: none;
 }
 
 #title {
   color: #fff;
-  background-color: #4d90fe;
+  background-color: tomato;
   font-size: 25px;
-  font-weight: 500;
   padding: 6px 12px;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 5px;
+  font-family: 'Pompiere', cursive;
+  text-align: center;
 }
