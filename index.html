@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place Autocomplete Restricted to Multiple Countries</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="pac-card" id="pac-card">
+      <div>
+        <div id="title">
+          Countries
+        </div>        
+      </div>
+      <div id="pac-container">
+        <input id="pac-input" type="text"
+            placeholder="Enter a location">
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>
+      <span id="place-address"></span>
+    </div>
+    <script src='js/index.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initMap"
+        async defer></script>
+  </body>
+</html>
