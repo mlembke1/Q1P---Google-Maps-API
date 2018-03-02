@@ -36,6 +36,7 @@ html, body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   background-color: #fff;
   font-family: Roboto;
+  max-width: 80%;
 }
 
 #pac-container {
@@ -63,6 +64,7 @@ html, body {
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 400px;
+  max-width: 80%;
 }
 
 #pac-input:focus {
@@ -76,6 +78,24 @@ html, body {
   padding: 6px 12px;
   border-radius: 5px 5px 0 0;
   margin-bottom: 5px;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-weight: 100;
+}
+
+footer.page-footer {
+  background-color: tomato;
   font-family: 'Pompiere', cursive;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.light, .page-footer .footer-copyright {
   text-align: center;
 }

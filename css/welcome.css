@@ -1,0 +1,45 @@
+html{
+  font-size: 16px;
+}
+
+body {
+  background-image: url(../images/Q1-welcome-photo.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: white;
+  font-size: 10rem;
+}
+
+.btn-large {
+  font-family: 'Pompiere', cursive;
+  font-size: 2rem;
+}
+
+footer.page-footer {
+  background-color: tomato;
+  font-family: 'Pompiere', cursive;
+}
+
+
+main {
+    flex: 1 0 auto;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.light, .page-footer .footer-copyright {
+  text-align: center;
+}
