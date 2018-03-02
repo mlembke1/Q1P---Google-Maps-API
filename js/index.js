@@ -1,7 +1,37 @@
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+let countryAbbreviations = {}
+let countryCapitals = {}
 
+///////////// GET COUNTRY ABBREVIATIONS ///////////////
+let $xhr = $.getJSON('http://country.io/names.json')
+$xhr.done(function(data) {
+    if ($xhr.status !== 200) {
+        return;
+    }
+      for (var key in data) {
+        countryAbbreviations[data[key]] = key
+      }
+});
+$xhr.fail(function(err) {
+    console.log(err);
+});
+
+///////////////GET COUNTRY CAPLITALS/////////
+let $xhr2 = $.getJSON('http://country.io/capital.json')
+$xhr2.done(function(data) {
+    if ($xhr.status !== 200) {
+        return;
+    }
+      for (var key in data) {
+        countryCapitals[key] = data[key]
+      }
+});
+
+$xhr.fail(function(err) {
+    console.log(err);
+});
+
+
+//////////////////CREATE MAP /////////////////////
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 0, lng: 0},
@@ -243,10 +273,6 @@ function initMap() {
 
   var autocomplete = new google.maps.places.Autocomplete(input);
 
-  // Set initial restrict to the greater list of countries.
-  // autocomplete.setComponentRestrictions(
-  //     {'country': ['us', 'pr', 'vi', 'gu', 'mp']});
-
   var infowindow = new google.maps.InfoWindow();
   var infowindowContent = document.getElementById('infowindow-content');
   infowindow.setContent(infowindowContent);
@@ -259,12 +285,12 @@ function initMap() {
     infowindow.close();
     marker.setVisible(false);
     var place = autocomplete.getPlace();
-    if (!place.geometry) {
-      // User entered the name of a Place that was not suggested and
-      // pressed the Enter key, or the Place Details request failed.
-      window.alert("No details available for input: '" + place.name + "'");
-      return;
-    }
+    // if (!place.geometry) {
+    //   // User entered the name of a Place that was not suggested and
+    //   // pressed the Enter key, or the Place Details request failed.
+    //   window.alert("No details available for input: '" + place.name + "'");
+    //   return;
+    // }
 
     // If the place has a geometry, then present it on a map.
     if (place.geometry.viewport) {
@@ -285,11 +311,13 @@ function initMap() {
       ].join(' ');
     }
 
+
+
     infowindowContent.children['place-icon'].src = place.icon;
     infowindowContent.children['place-name'].textContent = place.name;
-    infowindowContent.children['place-address'].textContent = address;
+    infowindowContent.children['place-name'].append(` Capital: ${countryCapitals[countryAbbreviations[place.name]]}`)
+
+
     infowindow.open(map, marker);
   });
 }
-
-  /////////////////// MAP STYLING ////////////////////////
