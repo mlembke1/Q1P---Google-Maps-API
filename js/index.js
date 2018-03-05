@@ -1,5 +1,7 @@
 let countryAbbreviations = {}
 let countryCapitals = {}
+const country = $('#country')
+const capital = $('#capital')
 
 ///////////// GET COUNTRY ABBREVIATIONS ///////////////
 let $xhr = $.getJSON('http://country.io/names.json')
@@ -26,7 +28,7 @@ $xhr2.done(function(data) {
       }
 });
 
-$xhr.fail(function(err) {
+$xhr2.fail(function(err) {
     console.log(err);
 });
 
@@ -263,7 +265,6 @@ function initMap() {
       ]
     }
   ]
-
   });
   var card = document.getElementById('pac-card');
   var input = document.getElementById('pac-input');
@@ -273,24 +274,14 @@ function initMap() {
 
   var autocomplete = new google.maps.places.Autocomplete(input);
 
-  var infowindow = new google.maps.InfoWindow();
-  var infowindowContent = document.getElementById('infowindow-content');
-  infowindow.setContent(infowindowContent);
   var marker = new google.maps.Marker({
     map: map,
     anchorPoint: new google.maps.Point(0, -29)
   });
 
   autocomplete.addListener('place_changed', function() {
-    infowindow.close();
     marker.setVisible(false);
     var place = autocomplete.getPlace();
-    // if (!place.geometry) {
-    //   // User entered the name of a Place that was not suggested and
-    //   // pressed the Enter key, or the Place Details request failed.
-    //   window.alert("No details available for input: '" + place.name + "'");
-    //   return;
-    // }
 
     // If the place has a geometry, then present it on a map.
     if (place.geometry.viewport) {
@@ -311,13 +302,23 @@ function initMap() {
       ].join(' ');
     }
 
-
-
-    infowindowContent.children['place-icon'].src = place.icon;
-    infowindowContent.children['place-name'].textContent = place.name;
-    infowindowContent.children['place-name'].append(` Capital: ${countryCapitals[countryAbbreviations[place.name]]}`)
-
-
-    infowindow.open(map, marker);
+    $('.button-collapse').sideNav('show');
+    country.text(`${place.name}`)
+    capital.text(`${countryCapitals[countryAbbreviations[place.name]]}`)
   });
 }
+
+$(document).ready(function(){
+  $('.button-collapse').sideNav({
+      menuWidth: 275, // Default is 300
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens
+    })
+
+    $('#pac-input').keypress(function(e) {
+      if (event.key === 'Enter') {
+
+      }
+    })
+})

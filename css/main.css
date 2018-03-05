@@ -71,6 +71,8 @@ html, body {
   outline: none;
 }
 
+
+
 #title {
   color: #fff;
   background-color: tomato;
@@ -88,6 +90,10 @@ footer.page-footer {
   font-family: 'Pompiere', cursive;
 }
 
+footer li {
+  border: none;
+}
+
 main {
     flex: 1 0 auto;
 }
@@ -98,4 +104,67 @@ main {
 
 .light, .page-footer .footer-copyright {
   text-align: center;
+}
+.button-collapse {
+  background-color: tomato;
+  color: white;
+  position: absolute;
+  bottom: 25px;
+  left: 15px;
+  opacity: .8;
+}
+
+.button-collapse:hover {
+  opacity: 1;
+  background-color: tomato;
+}
+
+#slide-out {
+  background-color: tomato;
+  color: white;
+  text-align: center;
+  border-left: 5px solid white;
+}
+
+#slide-out li {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5em;
+}
+
+@media (max-width: 375px){
+  #slide-out {
+    width: 375px !important;
+    position: absolute;
+    top: 300px;
+    border-left: none;
+    border-top: 5px solid white;
+  }
+
+  #inner-button {
+      position: relative;
+      bottom: 230px;
+      left: -140px;
+      border: 2px solid white;
+  }
+
+  footer {
+    border-top: 5px solid white;
+  }
+}
+
+ul:not(.browser-default)>li {
+  border: 1px solid white;
+  margin: 10px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#sidenav-overlay {
+  opacity: 0 !important;
+}
+
+#sidebar-header {
+  font-family: 'Pacifico', cursive;
+  border: none;
 }

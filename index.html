@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Country Data</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
-    <div class="pac-card" id="pac-card">
-      <div>
-        <div id="title">
-          Explore
+
+<head>
+  <title>Country Data</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="pac-card" id="pac-card">
+    <div>
+      <div id="title">
+        Explore
+      </div>
+    </div>
+    <div id="pac-container">
+      <input id="pac-input" type="search" placeholder="Enter a country">
+    </div>
+  </div>
+  <div id="map"></div>
+  <div id="infowindow-content">
+    <img src="" width="16" height="16" id="place-icon">
+    <span id="place-name" class="title"></span><br>
+    <span id="place-address"></span>
+  </div>
+
+  <ul id="slide-out" class="side-nav">
+    <li id='sidebar-header'>
+      <h5>Country Info</h5>
+    </li>
+    <li>Country: <span id='country'></span></li>
+    <li>Capital: <span id='capital'></span></li>
+    <a id= 'inner-button' data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">-</a>
+  </ul>
+  <a data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">+</a>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s6">
+          <h5 class="white-text">Explore</h5>
+          <p class="grey-text text-lighten-4">Use Explore and find info on your favorite countries.</p>
+        </div>
+        <div class="col l4 s6 align-right">
+          <h5 class="white-text">Contact</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/mitchell-lembke-a6189b138/" target="_blank">LinkedIn</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/mlembke1" target="_blank">Github</a></li>
+          </ul>
         </div>
       </div>
-      <div id="pac-container">
-        <input id="pac-input" type="text"
-            placeholder="Enter a country">
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Mitch Lembke 2018
       </div>
     </div>
-    <div id="map"></div>
-    <div id="infowindow-content">
-      <img src="" width="16" height="16" id="place-icon">
-      <span id="place-name"  class="title"></span><br>
-      <span id="place-address"></span>
-    </div>
-    <footer class="page-footer">
-         <div class="container">
-           <div class="row">
-             <div class="col l6 s6">
-               <h5 class="white-text">Explore</h5>
-               <p class="grey-text text-lighten-4">Use Explore and find info on your favorite countries.</p>
-             </div>
-             <div class="col l4 s6 align-right">
-               <h5 class="white-text">Contact</h5>
-               <ul>
-                 <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/mitchell-lembke-a6189b138/" target="_blank">LinkedIn</a></li>
-                 <li><a class="grey-text text-lighten-3" href="https://github.com/mlembke1" target="_blank">Github</a></li>
-               </ul>
-             </div>
-           </div>
-         </div>
-         <div class="footer-copyright">
-           <div class="container">
-           Mitch Lembke 2018
-           </div>
-         </div>
-       </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script
-    src="http://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-    </script>
-    <script src='js/index.js'></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initMap"
-        async defer>
-    </script>
+  </footer>
+  <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+  </script>
+  <script src='js/index.js'></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initMap" async defer>
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
+
 </html>
