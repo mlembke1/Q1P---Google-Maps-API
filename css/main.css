@@ -86,6 +86,7 @@ main {
   color: white;
   text-align: center;
   border-left: 5px solid white;
+  font-family: 'Lato', sans-serif;
 }
 
 #inner-button {
@@ -97,9 +98,8 @@ main {
   justify-content: space-around;
   font-size: 1.5em;
 
-  border: 1px solid white;
+  border-bottom: 1px solid white;
   margin: 10px;
-  border-radius: 4px;
   padding: 10px;
 }
 
@@ -132,7 +132,7 @@ footer ul li {
   opacity: 0 !important;
 }
 
-#sidebar-header {
+.sidebar-header {
   font-family: 'Pacifico', cursive;
   border: none !important;
 }

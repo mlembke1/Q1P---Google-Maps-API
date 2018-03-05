@@ -7,6 +7,7 @@
   <meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -15,13 +16,20 @@
   <input id="pac-input" type="search" placeholder="Enter a country">
 
   <div id="map"></div>
-  
+
   <ul id="slide-out" class="side-nav">
-    <li id='sidebar-header'>
+    <li class='sidebar-header'>
       <h5>Country Info</h5>
     </li>
     <li>Country: <span id='country'></span></li>
     <li>Capital: <span id='capital'></span></li>
+    <li class='sidebar-header'>
+      <h5>Current Weather</h5>
+    </li>
+      <li>Current Temp: <span id='current-temp'></span></li>
+      <li>Today's High: <span id='todays-high'></span></li>
+      <li>Today's Low: <span id='todays-low'></span></li>
+      <li>Expect: <span id='expect'></span></li>
     <a id='inner-button' data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">-</a>
   </ul>
   <a data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">+</a>
@@ -47,13 +55,13 @@
       </div>
     </div>
   </footer>
+  <script src='./js/sugar.js'></script>
   <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
   </script>
   <script src='js/index.js'></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initMap" async defer>
-  </script> -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 </body>
 
 </html>
