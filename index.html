@@ -23,11 +23,6 @@
     </div>
   </div>
   <div id="map"></div>
-  <div id="infowindow-content">
-    <img src="" width="16" height="16" id="place-icon">
-    <span id="place-name" class="title"></span><br>
-    <span id="place-address"></span>
-  </div>
 
   <ul id="slide-out" class="side-nav">
     <li id='sidebar-header'>
@@ -63,8 +58,10 @@
   <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
   </script>
   <script src='js/index.js'></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initMap" async defer>
-  </script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initMap" async defer>
+  </script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initAutocomplete"
+         async defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 

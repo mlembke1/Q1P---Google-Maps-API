@@ -8,14 +8,16 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+
 }
-#description {
+
+/* #description {
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-}
+} */
 
-#infowindow-content .title {
+/* #infowindow-content .title {
   font-weight: bold;
 }
 
@@ -25,7 +27,7 @@ html, body {
 
 #map #infowindow-content {
   display: inline;
-}
+} */
 
 .pac-card {
   margin: 20px 10px 0 0;
@@ -120,10 +122,14 @@ main {
 }
 
 #slide-out {
-  background-color: tomato;
+  background-color: #094464;
   color: white;
   text-align: center;
   border-left: 5px solid white;
+}
+
+#inner-button {
+  display: none;
 }
 
 #slide-out li {
@@ -146,6 +152,7 @@ main {
       bottom: 230px;
       left: -140px;
       border: 2px solid white;
+      display: inline-block;
   }
 
   footer {
