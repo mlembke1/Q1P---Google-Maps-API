@@ -12,25 +12,17 @@
 </head>
 
 <body>
-  <div class="pac-card" id="pac-card">
-    <div>
-      <div id="title">
-        Explore
-      </div>
-    </div>
-    <div id="pac-container">
-      <input id="pac-input" type="search" placeholder="Enter a country">
-    </div>
-  </div>
-  <div id="map"></div>
+  <input id="pac-input" type="search" placeholder="Enter a country">
 
+  <div id="map"></div>
+  
   <ul id="slide-out" class="side-nav">
     <li id='sidebar-header'>
       <h5>Country Info</h5>
     </li>
     <li>Country: <span id='country'></span></li>
     <li>Capital: <span id='capital'></span></li>
-    <a id= 'inner-button' data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">-</a>
+    <a id='inner-button' data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">-</a>
   </ul>
   <a data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">+</a>
   <footer class="page-footer">
@@ -60,8 +52,7 @@
   <script src='js/index.js'></script>
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initMap" async defer>
   </script> -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initAutocomplete"
-         async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 

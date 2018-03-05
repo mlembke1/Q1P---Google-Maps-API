@@ -10,70 +10,28 @@ html, body {
   padding: 0;
 
 }
-
-/* #description {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-} */
-
-/* #infowindow-content .title {
-  font-weight: bold;
-}
-
-#infowindow-content {
-  display: none;
-}
-
-#map #infowindow-content {
-  display: inline;
-} */
-
-.pac-card {
-  margin: 20px 10px 0 0;
-  border-radius: 5px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
-  font-family: Roboto;
-  max-width: 80%;
-}
-
-#pac-container {
-  padding-bottom: 12px;
-  margin-right: 12px;
-}
-
-.pac-controls {
-  display: inline-block;
-  padding: 5px 11px;
-}
-
-.pac-controls label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-}
-
 #pac-input {
-  background-color: #fff;
+  background-color: #094464;
+  color: white;
+  text-align: center;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 400px;
   max-width: 80%;
+  margin-top: 20px;
+  border-bottom: 2px solid white;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: -95px;
+  margin-top: 64px;
 }
 
 #pac-input:focus {
   outline: none;
 }
-
-
 
 #title {
   color: #fff;
@@ -90,6 +48,7 @@ html, body {
 footer.page-footer {
   background-color: tomato;
   font-family: 'Pompiere', cursive;
+  border-top: 5px solid white;
 }
 
 footer li {
@@ -114,6 +73,7 @@ main {
   bottom: 25px;
   left: 15px;
   opacity: .8;
+  border: 2px solid white;
 }
 
 .button-collapse:hover {
@@ -136,13 +96,18 @@ main {
   display: flex;
   justify-content: space-around;
   font-size: 1.5em;
+
+  border: 1px solid white;
+  margin: 10px;
+  border-radius: 4px;
+  padding: 10px;
 }
 
 @media (max-width: 375px){
   #slide-out {
     width: 375px !important;
-    position: absolute;
-    top: 300px;
+    height: 50%;
+    margin-top: 100%;
     border-left: none;
     border-top: 5px solid white;
   }
@@ -155,16 +120,12 @@ main {
       display: inline-block;
   }
 
-  footer {
-    border-top: 5px solid white;
-  }
 }
 
-ul:not(.browser-default)>li {
-  border: 1px solid white;
-  margin: 10px;
-  border-radius: 4px;
-  padding: 10px;
+footer ul li {
+  border: none !important;
+  margin: none !important;
+  padding: none !important;
 }
 
 #sidenav-overlay {
@@ -173,5 +134,5 @@ ul:not(.browser-default)>li {
 
 #sidebar-header {
   font-family: 'Pacifico', cursive;
-  border: none;
+  border: none !important;
 }
