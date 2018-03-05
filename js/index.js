@@ -298,10 +298,9 @@ function initAutocomplete() {
          woeid: '',
          unit: 'f',
          success: function(weather) {
-           console.log(weather.text);
-           $('#current-temp').text(`${Math.ceil(convertToF(weather.alt.temp))}`)
-           $('#todays-high').text(`${Math.ceil(convertToF(weather.alt.high))}`)
-           $('#todays-low').text(`${Math.ceil(convertToF(weather.alt.low))}`)
+           $('#current-temp').text(`${Math.ceil(convertToF(weather.alt.temp))}˚F`)
+           $('#todays-high').text(`${Math.ceil(convertToF(weather.alt.high))}˚F`)
+           $('#todays-low').text(`${Math.ceil(convertToF(weather.alt.low))}˚F`)
            $('#expect').text(`${weather.text}`)
          },
          error: function(error) {
