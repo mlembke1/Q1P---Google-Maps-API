@@ -4,11 +4,11 @@ const country = $('#country')
 const capital = $('#capital')
 
 const convertToF = (num) => {
-  return (num * 9/5) + 32
+  return (num * 9 / 5) + 32
 }
 
 const convertToC = (num) => {
-  return (68 - 32) * 5/9
+  return (68 - 32) * 5 / 9
 }
 
 ///////////// GET COUNTRY ABBREVIATIONS ///////////////
@@ -293,20 +293,21 @@ function initAutocomplete() {
       country.text(`${place.name}`)
       capital.text(`${countryCapitals[countryAbbreviations[place.name]]}`)
 
-      $.simpleWeather({
-         location: `${countryCapitals[countryAbbreviations[place.name]]}`,
-         woeid: '',
-         unit: 'f',
-         success: function(weather) {
-           $('#current-temp').text(`${Math.ceil(convertToF(weather.alt.temp))}˚F`)
-           $('#todays-high').text(`${Math.ceil(convertToF(weather.alt.high))}˚F`)
-           $('#todays-low').text(`${Math.ceil(convertToF(weather.alt.low))}˚F`)
-           $('#currently').text(` ${weather.currently}`)
-         },
-         error: function(error) {
-           $("#weather").html('<p>'+error+'</p>');
-         }
- });
+           $.simpleWeather({
+              location: `${countryCapitals[countryAbbreviations[place.name]]}`,
+              woeid: '',
+              unit: 'f',
+              success: function(weather) {
+                console.log(weather);
+                $('#current-temp').text(`${Math.ceil(convertToF(weather.alt.temp))}˚F`)
+                $('#todays-high').text(`${Math.ceil(convertToF(weather.alt.high))}˚F`)
+                $('#todays-low').text(`${Math.ceil(convertToF(weather.alt.low))}˚F`)
+                $('#currently').text(` ${weather.currently}`)
+              },
+              error: function(error) {
+                $("#weather").html('<p>'+error+'</p>');
+              }
+      });
 
     })
     map.fitBounds(bounds);
