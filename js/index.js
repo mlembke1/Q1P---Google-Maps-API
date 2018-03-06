@@ -15,6 +15,7 @@ const convertFromK = (num) => {
   return Math.ceil((num * 9/5) - 459.67)
 }
 
+
 ///////////// GET COUNTRY ABBREVIATIONS ///////////////
 let $xhr = $.getJSON('https://g-country.herokuapp.com/names.json')
 $xhr.done(function(data) {
@@ -303,10 +304,27 @@ function initAutocomplete() {
         if ($xhr.status !== 200) {
           return
         }
+
+        const f = $('#f')[0]
+        const c = $('#c')[0]
+        const k = $('#k')[0]
+        const unitContainer = $('#unitContainer')[0]
+        // $(unitContainer).click((event) => {
+        //   if($(event.target).hasClass('selected')){
+        //     $(event.target).removeClass('selected')
+        //   } else {
+        //       $(event.target).addClass('selected')
+        //   }
+        // })
+
         let currentTemp = convertFromK(data.main.temp)
         let low = convertFromK(data.main.temp_min)
         let high = convertFromK(data.main.temp_max)
         let currentWeather = data.weather[0].main
+
+        let selectedUnit = null;
+        
+
         $('#current-temp').text(`${currentTemp}˚F`)
         $('#todays-high').text(`${high}˚F`)
         $('#todays-low').text(`${low}˚F`)
@@ -332,4 +350,5 @@ $(document).ready(function() {
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
     draggable: true // Choose whether you can drag to open on touch screens
   })
+
 })

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <input id="pac-input" type="search" placeholder="Enter a country">
+  <input id="pac-input" type="search" placeholder="Enter a country" autofocus>
 
   <div id="map"></div>
 
@@ -27,12 +27,19 @@
     <li class='sidebar-header'>
       <h5>Current Weather</h5>
     </li>
+      <div id='unitContainer' class="row">
+            <input value = '' name="unit-type" type="radio" id="k"/>
+            <label for="k">K˚</label>
+            <input value = '' name="unit-type" type="radio" id="c"/>
+            <label for="c">C˚</label>
+            <input value = '' name="unit-type" checked type="radio" id="f"/>
+            <label for="f">F˚</label>
+      </div>
       <li>Current Temp: <span id='current-temp'></span></li>
       <li>Today's High: <span id='todays-high'></span></li>
       <li>Today's Low: <span id='todays-low'></span></li>
       <li>Currently <span id='currently'></span></li>
 
-    <!-- <a id='inner-button' data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">-</a> -->
   </ul>
   <a data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">+</a>
   <footer class="page-footer">

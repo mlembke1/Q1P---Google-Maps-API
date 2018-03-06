@@ -89,10 +89,6 @@ main {
   font-family: 'Lato', sans-serif;
 }
 
-/* #inner-button {
-  display: none;
-} */
-
 #slide-out li {
   display: flex;
   justify-content: space-around;
@@ -113,14 +109,6 @@ main {
     font-weight: bold;
   }
 
-  /* #inner-button {
-      position: relative;
-      bottom: 230px;
-      left: -140px;
-      border: 2px solid white;
-      display: inline-block;
-  } */
-
 }
 
 #sidenav-overlay {
@@ -130,4 +118,19 @@ main {
 .sidebar-header h5 {
   color: Tomato;
   font-weight: bold;
+
+}
+.row {
+  display: flex;
+  font-weight: bold;
+  justify-content: space-around;
+}
+
+.row input {
+  background-color: tomato;
+  justify-content: space-between;
+  color: white;
+  border-radius: 3px;
+  opacity: .5;
+  transition: .25s;
 }
