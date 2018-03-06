@@ -16,7 +16,7 @@ const convertFromK = (num) => {
 }
 
 ///////////// GET COUNTRY ABBREVIATIONS ///////////////
-let $xhr = $.getJSON('http://country.io/names.json')
+let $xhr = $.getJSON('https://g-country.herokuapp.com/names.json')
 $xhr.done(function(data) {
   if ($xhr.status !== 200) {
     return;
@@ -30,7 +30,7 @@ $xhr.fail(function(err) {
 });
 
 ///////////////GET COUNTRY CAPLITALS/////////
-let $xhr2 = $.getJSON('http://country.io/capital.json')
+let $xhr2 = $.getJSON('https://g-country.herokuapp.com/capital.json')
 $xhr2.done(function(data) {
   if ($xhr.status !== 200) {
     return;
