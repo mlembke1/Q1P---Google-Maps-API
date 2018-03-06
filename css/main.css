@@ -122,17 +122,11 @@ main {
 
 }
 
-footer ul li {
-  border: none !important;
-  margin: none !important;
-  padding: none !important;
-}
-
 #sidenav-overlay {
   opacity: 0 !important;
 }
 
 .sidebar-header {
-  font-family: 'Pacifico', cursive;
-  border: none !important;
+  color: tomato;
+  font-weight: bold;
 }

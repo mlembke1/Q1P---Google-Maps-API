@@ -301,7 +301,7 @@ function initAutocomplete() {
            $('#current-temp').text(`${Math.ceil(convertToF(weather.alt.temp))}˚F`)
            $('#todays-high').text(`${Math.ceil(convertToF(weather.alt.high))}˚F`)
            $('#todays-low').text(`${Math.ceil(convertToF(weather.alt.low))}˚F`)
-           $('#expect').text(`${weather.text}`)
+           $('#currently').text(` ${weather.currently}`)
          },
          error: function(error) {
            $("#weather").html('<p>'+error+'</p>');
