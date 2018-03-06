@@ -89,9 +89,9 @@ main {
   font-family: 'Lato', sans-serif;
 }
 
-#inner-button {
+/* #inner-button {
   display: none;
-}
+} */
 
 #slide-out li {
   display: flex;
@@ -110,15 +110,16 @@ main {
     margin-top: 100%;
     border-left: none;
     border-top: 5px solid white;
+    font-weight: bold;
   }
 
-  #inner-button {
+  /* #inner-button {
       position: relative;
       bottom: 230px;
       left: -140px;
       border: 2px solid white;
       display: inline-block;
-  }
+  } */
 
 }
 
@@ -126,7 +127,7 @@ main {
   opacity: 0 !important;
 }
 
-.sidebar-header {
-  color: tomato;
+.sidebar-header h5 {
+  color: Tomato;
   font-weight: bold;
 }

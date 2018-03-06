@@ -296,14 +296,13 @@ function initAutocomplete() {
       }
       country.text(`${place.name}`)
       capital.text(`${countryCapitals[countryAbbreviations[place.name]]}`)
-      
+
       ///////////// GET WEATHER ///////////////
       let $xhr3 = $.getJSON(`http://api.openweathermap.org/data/2.5/weather?q=${countryCapitals[countryAbbreviations[place.name]]}&APPID=96e1482cd1c7ae7db7ff83f1054f01ff`)
       $xhr3.done(function(data) {
         if ($xhr.status !== 200) {
           return
         }
-        console.log(data);
         let currentTemp = convertFromK(data.main.temp)
         let low = convertFromK(data.main.temp_min)
         let high = convertFromK(data.main.temp_max)
