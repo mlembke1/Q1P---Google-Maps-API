@@ -1,0 +1,22 @@
+{
+  "name": "q1p---google-maps-api",
+  "version": "1.0.0",
+  "description": "weather-api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlembke1/Q1P---Google-Maps-API.git"
+  },
+  "author": "Mitchell Lembke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlembke1/Q1P---Google-Maps-API/issues"
+  },
+  "homepage": "https://github.com/mlembke1/Q1P---Google-Maps-API#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
