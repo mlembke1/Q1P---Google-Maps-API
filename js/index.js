@@ -4,11 +4,15 @@ const country = $('#country')
 const capital = $('#capital')
 
 const convertToF = (num) => {
-  return (num * 9 / 5) + 32
+  return Math.ceil((num * 9 / 5) + 32)
 }
 
 const convertToC = (num) => {
-  return (68 - 32) * 5 / 9
+  return Math.ceil((68 - 32) * 5 / 9)
+}
+
+const convertFromK = (num) => {
+  return Math.ceil((num * 9/5) - 459.67)
 }
 
 ///////////// GET COUNTRY ABBREVIATIONS ///////////////
@@ -292,21 +296,26 @@ function initAutocomplete() {
       }
       country.text(`${place.name}`)
       capital.text(`${countryCapitals[countryAbbreviations[place.name]]}`)
+      
+      ///////////// GET WEATHER ///////////////
+      let $xhr3 = $.getJSON(`http://api.openweathermap.org/data/2.5/weather?q=${countryCapitals[countryAbbreviations[place.name]]}&APPID=96e1482cd1c7ae7db7ff83f1054f01ff`)
+      $xhr3.done(function(data) {
+        if ($xhr.status !== 200) {
+          return
+        }
+        console.log(data);
+        let currentTemp = convertFromK(data.main.temp)
+        let low = convertFromK(data.main.temp_min)
+        let high = convertFromK(data.main.temp_max)
+        let currentWeather = data.weather[0].main
+        $('#current-temp').text(`${currentTemp}˚F`)
+        $('#todays-high').text(`${high}˚F`)
+        $('#todays-low').text(`${low}˚F`)
+        $('#currently').text(` ${currentWeather}`)
 
-           $.simpleWeather({
-              location: `${countryCapitals[countryAbbreviations[place.name]]}`,
-              woeid: '',
-              unit: 'f',
-              success: function(weather) {
-                console.log(weather);
-                $('#current-temp').text(`${Math.ceil(convertToF(weather.alt.temp))}˚F`)
-                $('#todays-high').text(`${Math.ceil(convertToF(weather.alt.high))}˚F`)
-                $('#todays-low').text(`${Math.ceil(convertToF(weather.alt.low))}˚F`)
-                $('#currently').text(` ${weather.currently}`)
-              },
-              error: function(error) {
-                $("#weather").html('<p>'+error+'</p>');
-              }
+      })
+      $xhr3.fail(function(err) {
+        console.log(err);
       });
 
     })
