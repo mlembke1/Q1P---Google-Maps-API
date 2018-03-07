@@ -3,6 +3,8 @@ let countryCapitals = {}
 const country = $('#country')
 const capital = $('#capital')
 let favorites = {}
+let currentCountry = null;
+let currentCapital = null;
 
 // FUNCTIONS TO CONVERT TEMPERATURES
 const math = {
@@ -291,26 +293,20 @@ function initAutocomplete() {
         bounds.extend(place.geometry.location);
 
       }
-      country.text(`${place.name}`)
-      capital.text(`${countryCapitals[countryAbbreviations[place.name]]}`)
+      currentCountry = `${place.name}`
+      currentCapital = `${countryCapitals[countryAbbreviations[place.name]]}`
 
-      if (!favorites[`${place.name}`]) {
+      country.text(currentCountry)
+      capital.text(currentCapital)
+
+
+      if (favorites[currentCountry] === undefined || favorites[currentCountry] === false) {
         $('#country').removeClass('fav')
       } else {
         $('#country').addClass('fav')
       }
 
-      // star click
-      $('#country').click(() => {
-        if (favorites[`${place.name}`] === false) {
-          favorites[`${place.name}`] = true
-          $('#country').addClass('fav')
-        } else {
-          favorites[`${place.name}`] = false
-          $('#country').removeClass('fav')
-        }
-        console.log(favorites);
-      })
+
 
       ///////////// GET WEATHER ///////////////
       let $xhr3 = $.getJSON(`http://api.openweathermap.org/data/2.5/weather?q=${countryCapitals[countryAbbreviations[place.name]]}&APPID=96e1482cd1c7ae7db7ff83f1054f01ff`)
@@ -383,4 +379,25 @@ $(document).ready(function() {
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
     draggable: true // Choose whether you can drag to open on touch screens
   })
+
+  let favoritesArray = []
+  $('#country').click(() => {
+    if (favorites[currentCountry] !== true) {
+      favorites[currentCountry] = true
+      $('#country').addClass('fav')
+    } else {
+      favorites[currentCountry] = false
+      $('#country').removeClass('fav')
+    }
+    for (var key in favorites) {
+      if(favorites[key] === true && !favoritesArray.includes(key)) {
+        favoritesArray.push(key)
+      } else if (favorites[key] === false){
+
+      }
+
+    }
+    console.log(favoritesArray);
+  })
+
 })
