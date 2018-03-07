@@ -2,11 +2,12 @@ let countryAbbreviations = {}
 let countryCapitals = {}
 const country = $('#country')
 const capital = $('#capital')
+let favorites = {}
 
-
+// FUNCTIONS TO CONVERT TEMPERATURES
 const math = {
-  fromKtoF: num => Math.ceil((num * 9/5) - 459.67),
-  fromKtoC: num =>  Math.ceil((num - 273.15))
+  fromKtoF: num => Math.ceil((num * 9 / 5) - 459.67),
+  fromKtoC: num => Math.ceil((num - 273.15))
 }
 
 
@@ -39,6 +40,7 @@ $xhr2.fail(function(err) {
   console.log(err);
 });
 
+// GOOGLE MAPS VOODOO
 function initAutocomplete() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -292,6 +294,21 @@ function initAutocomplete() {
       country.text(`${place.name}`)
       capital.text(`${countryCapitals[countryAbbreviations[place.name]]}`)
 
+
+      if (!favorites[`${place.name}`]) {
+        $('#country').removeClass('fav')
+      }
+
+      $('#country').click(() => {
+        if (!favorites[`${place.name}`]) {
+          favorites[`${place.name}`] = 1
+          $('#country').addClass('fav')
+        } else {
+          delete favorites[`${place.name}`]
+          $('#country').removeClass('fav')
+        }
+      })
+
       ///////////// GET WEATHER ///////////////
       let $xhr3 = $.getJSON(`http://api.openweathermap.org/data/2.5/weather?q=${countryCapitals[countryAbbreviations[place.name]]}&APPID=96e1482cd1c7ae7db7ff83f1054f01ff`)
       $xhr3.done(function(data) {
@@ -301,7 +318,7 @@ function initAutocomplete() {
 
         // DEFAULT SETTINGS FOR RADIO BUTTONS
         const f = $('#f')[0]
-        $('#k').prop('checked',true);
+        $('#k').prop('checked', true);
         const unitContainer = $('#unitContainer')[0]
 
         // DEFAULT TEMPERATURE UNIT SELECTED IS K
@@ -319,25 +336,27 @@ function initAutocomplete() {
         // WHEN A DIFFERENCE RADIO BUTTON IS SELECTED
         // CHANGE THE UNITS.
         $(unitContainer).change(() => {
-            let selectedUnit = $('input:checked').val()
-            if(selectedUnit === 'f'){
-              currentTemp = `${math.fromKtoF(data.main.temp)}˚F`
-              low = `${math.fromKtoF(data.main.temp_min)}˚F`
-              high = `${math.fromKtoF(data.main.temp_max)}˚F`
-            } if (selectedUnit === 'c'){
-              currentTemp = `${math.fromKtoC(data.main.temp)}˚C`
-              low = `${math.fromKtoC(data.main.temp_min)}˚C`
-              high = `${math.fromKtoC(data.main.temp_max)}˚C`
-            } if (selectedUnit === 'k') {
-              currentTemp = `${Math.ceil(data.main.temp)}˚K`
-              low = `${Math.ceil(data.main.temp_min)}˚K`
-              high = `${Math.ceil(data.main.temp_max)}˚K`
-            }
+          let selectedUnit = $('input:checked').val()
+          if (selectedUnit === 'f') {
+            currentTemp = `${math.fromKtoF(data.main.temp)}˚F`
+            low = `${math.fromKtoF(data.main.temp_min)}˚F`
+            high = `${math.fromKtoF(data.main.temp_max)}˚F`
+          }
+          if (selectedUnit === 'c') {
+            currentTemp = `${math.fromKtoC(data.main.temp)}˚C`
+            low = `${math.fromKtoC(data.main.temp_min)}˚C`
+            high = `${math.fromKtoC(data.main.temp_max)}˚C`
+          }
+          if (selectedUnit === 'k') {
+            currentTemp = `${Math.ceil(data.main.temp)}˚K`
+            low = `${Math.ceil(data.main.temp_min)}˚K`
+            high = `${Math.ceil(data.main.temp_max)}˚K`
+          }
 
-            $('#current-temp').text(`${currentTemp}`)
-            $('#todays-high').text(`${high}`)
-            $('#todays-low').text(`${low}`)
-            $('#currently').text(` ${currentWeather}`)
+          $('#current-temp').text(`${currentTemp}`)
+          $('#todays-high').text(`${high}`)
+          $('#todays-low').text(`${low}`)
+          $('#currently').text(` ${currentWeather}`)
 
         })
 
@@ -345,13 +364,13 @@ function initAutocomplete() {
       $xhr3.fail(function(err) {
         console.log(err);
       });
-
     })
     map.fitBounds(bounds);
     $('.button-collapse').sideNav('show');
-
   })
 }
+
+
 
 
 $(document).ready(function() {
@@ -361,5 +380,4 @@ $(document).ready(function() {
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
     draggable: true // Choose whether you can drag to open on touch screens
   })
-
 })

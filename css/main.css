@@ -1,15 +1,18 @@
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
+
 #map {
   height: 100%;
 }
+
 /* Optional: Makes the sample page fill the window. */
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-
 }
+
 #pac-input {
   background-color: #094464;
   color: white;
@@ -56,7 +59,7 @@ footer li {
 }
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .align-right {
@@ -66,6 +69,7 @@ main {
 .light, .page-footer .footer-copyright {
   text-align: center;
 }
+
 .button-collapse {
   background-color: tomato;
   color: white;
@@ -108,13 +112,12 @@ main {
   display: flex;
   justify-content: space-around;
   font-size: 1.5em;
-
   border-bottom: 1px solid white;
   margin: 10px;
   padding: 10px;
 }
 
-@media (max-width: 375px){
+@media (max-width: 375px) {
   #slide-out {
     width: 375px !important;
     height: 50%;
@@ -123,7 +126,6 @@ main {
     border-top: 5px solid white;
     font-weight: bold;
   }
-
 }
 
 #sidenav-overlay {
@@ -133,8 +135,9 @@ main {
 .sidebar-header h5 {
   color: Tomato;
   font-weight: bold;
-
+  display: inline-block;
 }
+
 .row {
   display: flex;
   font-weight: bold;
@@ -148,4 +151,30 @@ main {
   border-radius: 3px;
   opacity: .5;
   transition: .25s;
+}
+
+.heart {
+  display: inline-block;
+  font-size: 30px;
+  color: tomato;
+}
+
+#country {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#country:after {
+  content: ' \2606';
+  color: rgb(255, 203, 0);
+  cursor: pointer;
+}
+
+/* #country:hover:after {
+  content: ' \2605';
+  cursor: pointer;
+} */
+
+#country.fav:after {
+  content: ' \2605';
 }
