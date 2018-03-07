@@ -32,4 +32,4 @@ git clone git@github.com:mlembke1/Q1P---Google-Maps-API.git
 When you hit the landing page, press go to explore the countries, capitals, and
 different weather facts. Along the way, you may save countries that are your favorites to your favorites list. Have fun!
 
-![Alt text](/images/main-page.jpg?raw=true "Main Page")
+![Alt text](/images/main-page.png?raw=true "Main Page")
