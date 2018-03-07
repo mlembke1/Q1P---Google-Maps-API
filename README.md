@@ -27,9 +27,9 @@ git clone git@github.com:mlembke1/Q1P---Google-Maps-API.git
 
 ## Usage
 
-![alt text]('/images/landing-page.jpg')
+![Alt text](/images/landing-page.jpg?raw=true "Landing Page")
 
 When you hit the landing page, press go to explore the countries, capitals, and
 different weather facts. Along the way, you may save countries that are your favorites to your favorites list. Have fun!
 
-![alt text]('/images/main-page.jpg')
+![Alt text](/images/main-page.jpg?raw=true "Main Page")
