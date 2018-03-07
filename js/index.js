@@ -299,13 +299,13 @@ function initAutocomplete() {
           return
         }
 
-        const f = $('#f')[0]        
+        const f = $('#f')[0]
         $('#k').prop('checked',true);
         const unitContainer = $('#unitContainer')[0]
 
-        let currentTemp = `${data.main.temp}˚K`
-        let low = `${data.main.temp_min}˚K`
-        let high = `${data.main.temp_max}˚K`
+        let currentTemp = `${Math.ceil(data.main.temp)}˚K`
+        let low = `${Math.ceil(data.main.temp_min)}˚K`
+        let high = `${Math.ceil(data.main.temp_max)}˚K`
         let currentWeather = data.weather[0].main
 
         $('#current-temp').text(`${currentTemp}`)
@@ -317,7 +317,6 @@ function initAutocomplete() {
 
         $(unitContainer).change(() => {
             let selectedUnit = $('input:checked').val()
-            console.log(selectedUnit);
             if(selectedUnit === 'f'){
               currentTemp = `${math.fromKtoF(data.main.temp)}˚F`
               low = `${math.fromKtoF(data.main.temp_min)}˚F`
@@ -327,9 +326,9 @@ function initAutocomplete() {
               low = `${math.fromKtoC(data.main.temp_min)}˚C`
               high = `${math.fromKtoC(data.main.temp_max)}˚C`
             } if (selectedUnit === 'k') {
-              currentTemp = `${data.main.temp}˚K`
-              low = `${data.main.temp_min}˚K`
-              high = `${data.main.temp_max}˚K`
+              currentTemp = `${Math.ceil(data.main.temp)}˚K`
+              low = `${Math.ceil(data.main.temp_min)}˚K`
+              high = `${Math.ceil(data.main.temp_max)}˚K`
             }
 
             $('#current-temp').text(`${currentTemp}`)
