@@ -3,8 +3,9 @@ let countryCapitals = {}
 const country = $('#country')
 const capital = $('#capital')
 let favorites = {}
-let currentCountry = null;
-let currentCapital = null;
+let currentCountry = null
+let currentCapital = null
+
 
 // FUNCTIONS TO CONVERT TEMPERATURES
 const math = {
@@ -233,6 +234,7 @@ function initAutocomplete() {
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
+
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   // Bias the SearchBox results towards current map's viewport.
@@ -300,7 +302,9 @@ function initAutocomplete() {
       capital.text(currentCapital)
 
 
-      if (favorites[currentCountry] === undefined || favorites[currentCountry] === false) {
+      let savedFavorites = JSON.parse(localStorage.getItem('favorites'))
+
+      if (!savedFavorites.includes(currentCountry)) {
         $('#country').removeClass('fav')
       } else {
         $('#country').addClass('fav')
@@ -400,7 +404,6 @@ $(document).ready(function() {
         favoritesArray.splice(indexOfFalsey, 1)
       }
     }
-    localStorage.setItem('favorites', favoritesArray)
+    localStorage.setItem('favorites', JSON.stringify(favoritesArray))
   })
-
 })
