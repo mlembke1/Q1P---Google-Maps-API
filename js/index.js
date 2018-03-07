@@ -3,16 +3,10 @@ let countryCapitals = {}
 const country = $('#country')
 const capital = $('#capital')
 
-const convertToF = (num) => {
-  return Math.ceil((num * 9 / 5) + 32)
-}
 
-const convertToC = (num) => {
-  return Math.ceil((68 - 32) * 5 / 9)
-}
-
-const convertFromK = (num) => {
-  return Math.ceil((num * 9/5) - 459.67)
+const math = {
+  fromKtoF: num => Math.ceil((num * 9/5) - 459.67),
+  fromKtoC: num =>  Math.ceil((num - 273.15))
 }
 
 
@@ -305,30 +299,49 @@ function initAutocomplete() {
           return
         }
 
-        const f = $('#f')[0]
-        const c = $('#c')[0]
-        const k = $('#k')[0]
+        const f = $('#f')[0]        
+        $('#k').prop('checked',true);
         const unitContainer = $('#unitContainer')[0]
-        // $(unitContainer).click((event) => {
-        //   if($(event.target).hasClass('selected')){
-        //     $(event.target).removeClass('selected')
-        //   } else {
-        //       $(event.target).addClass('selected')
-        //   }
-        // })
 
-        let currentTemp = convertFromK(data.main.temp)
-        let low = convertFromK(data.main.temp_min)
-        let high = convertFromK(data.main.temp_max)
+        let currentTemp = `${data.main.temp}˚K`
+        let low = `${data.main.temp_min}˚K`
+        let high = `${data.main.temp_max}˚K`
         let currentWeather = data.weather[0].main
 
-        let selectedUnit = null;
-        
-
-        $('#current-temp').text(`${currentTemp}˚F`)
-        $('#todays-high').text(`${high}˚F`)
-        $('#todays-low').text(`${low}˚F`)
+        $('#current-temp').text(`${currentTemp}`)
+        $('#todays-high').text(`${high}`)
+        $('#todays-low').text(`${low}`)
         $('#currently').text(` ${currentWeather}`)
+
+
+
+        $(unitContainer).change(() => {
+            let selectedUnit = $('input:checked').val()
+            console.log(selectedUnit);
+            if(selectedUnit === 'f'){
+              currentTemp = `${math.fromKtoF(data.main.temp)}˚F`
+              low = `${math.fromKtoF(data.main.temp_min)}˚F`
+              high = `${math.fromKtoF(data.main.temp_max)}˚F`
+            } if (selectedUnit === 'c'){
+              currentTemp = `${math.fromKtoC(data.main.temp)}˚C`
+              low = `${math.fromKtoC(data.main.temp_min)}˚C`
+              high = `${math.fromKtoC(data.main.temp_max)}˚C`
+            } if (selectedUnit === 'k') {
+              currentTemp = `${data.main.temp}˚K`
+              low = `${data.main.temp_min}˚K`
+              high = `${data.main.temp_max}˚K`
+            }
+
+            $('#current-temp').text(`${currentTemp}`)
+            $('#todays-high').text(`${high}`)
+            $('#todays-low').text(`${low}`)
+            $('#currently').text(` ${currentWeather}`)
+
+        })
+
+
+
+
 
       })
       $xhr3.fail(function(err) {
