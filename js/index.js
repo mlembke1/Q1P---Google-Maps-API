@@ -299,22 +299,25 @@ function initAutocomplete() {
           return
         }
 
+        // DEFAULT SETTINGS FOR RADIO BUTTONS
         const f = $('#f')[0]
         $('#k').prop('checked',true);
         const unitContainer = $('#unitContainer')[0]
 
+        // DEFAULT TEMPERATURE UNIT SELECTED IS K
         let currentTemp = `${Math.ceil(data.main.temp)}˚K`
         let low = `${Math.ceil(data.main.temp_min)}˚K`
         let high = `${Math.ceil(data.main.temp_max)}˚K`
         let currentWeather = data.weather[0].main
 
+        // ADD DEFAULT TEMPERATURES TO HTML
         $('#current-temp').text(`${currentTemp}`)
         $('#todays-high').text(`${high}`)
         $('#todays-low').text(`${low}`)
         $('#currently').text(` ${currentWeather}`)
 
-
-
+        // WHEN A DIFFERENCE RADIO BUTTON IS SELECTED
+        // CHANGE THE UNITS.
         $(unitContainer).change(() => {
             let selectedUnit = $('input:checked').val()
             if(selectedUnit === 'f'){
@@ -337,10 +340,6 @@ function initAutocomplete() {
             $('#currently').text(` ${currentWeather}`)
 
         })
-
-
-
-
 
       })
       $xhr3.fail(function(err) {
