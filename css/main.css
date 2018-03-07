@@ -72,11 +72,26 @@ main {
   position: absolute;
   bottom: 25px;
   left: 15px;
-  opacity: .8;
+  opacity: .6;
   border: 2px solid white;
 }
 
 .button-collapse:hover {
+  opacity: 1;
+  background-color: tomato;
+}
+
+.button-collapse-1 {
+  background-color: tomato;
+  color: white;
+  position: absolute;
+  bottom: 100px;
+  left: 15px;
+  opacity: .6;
+  border: 2px solid white;
+}
+
+.button-collapse-1:hover {
   opacity: 1;
   background-color: tomato;
 }
