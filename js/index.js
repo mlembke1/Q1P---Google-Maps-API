@@ -380,6 +380,8 @@ $(document).ready(function() {
     draggable: true // Choose whether you can drag to open on touch screens
   })
 
+
+  // SETTING LOCAL STORAGE
   let favoritesArray = []
   $('#country').click(() => {
     if (favorites[currentCountry] !== true) {
@@ -390,14 +392,15 @@ $(document).ready(function() {
       $('#country').removeClass('fav')
     }
     for (var key in favorites) {
+      let indexOfFalsey
       if(favorites[key] === true && !favoritesArray.includes(key)) {
         favoritesArray.push(key)
-      } else if (favorites[key] === false){
-
+      } else if (favorites[key] === false && favoritesArray.includes(key)){
+        indexOfFalsey = favoritesArray.indexOf(key)
+        favoritesArray.splice(indexOfFalsey, 1)
       }
-
     }
-    console.log(favoritesArray);
+    localStorage.setItem('favorites', favoritesArray)
   })
 
 })
