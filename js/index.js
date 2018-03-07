@@ -294,19 +294,22 @@ function initAutocomplete() {
       country.text(`${place.name}`)
       capital.text(`${countryCapitals[countryAbbreviations[place.name]]}`)
 
-
       if (!favorites[`${place.name}`]) {
         $('#country').removeClass('fav')
+      } else {
+        $('#country').addClass('fav')
       }
 
+      // star click
       $('#country').click(() => {
-        if (!favorites[`${place.name}`]) {
-          favorites[`${place.name}`] = 1
+        if (favorites[`${place.name}`] === false) {
+          favorites[`${place.name}`] = true
           $('#country').addClass('fav')
         } else {
-          delete favorites[`${place.name}`]
+          favorites[`${place.name}`] = false
           $('#country').removeClass('fav')
         }
+        console.log(favorites);
       })
 
       ///////////// GET WEATHER ///////////////
