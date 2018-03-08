@@ -12,8 +12,9 @@ let savedFavorites = JSON.parse(localStorage.getItem('favorites')) || []
 
 // FUNCTIONS TO CONVERT TEMPERATURES
 const math = {
-  fromKtoF: num => Math.ceil((num * 9 / 5) - 459.67),
-  fromKtoC: num => Math.ceil((num - 273.15))
+  fromKtoF: num => Math.ceil((num * (9 / 5)) - 459.67),
+  fromKtoC: num => Math.ceil((num - 273.15)),
+  fromKtoR: num => Math.ceil((num * (9/5)))
 }
 
 
@@ -358,6 +359,11 @@ function initAutocomplete() {
             low = `${Math.ceil(data.main.temp_min)}˚K`
             high = `${Math.ceil(data.main.temp_max)}˚K`
           }
+          if (selectedUnit === 'r') {
+            currentTemp = `${math.fromKtoR(data.main.temp)}˚R`
+            low = `${math.fromKtoR(data.main.temp_min)}˚R`
+            high = `${math.fromKtoR(data.main.temp_max)}˚R`
+          }
 
           $('#current-temp').text(`${currentTemp}`)
           $('#todays-high').text(`${high}`)
@@ -391,27 +397,13 @@ $(document).ready(function() {
     if (favorites[currentCountry] !== true && !savedFavorites.includes(currentCountry)) {
       favorites[currentCountry] = true
       $('#country').addClass('fav')
-
       savedFavorites.push(currentCountry)
     } else {
       favorites[currentCountry] = false
       $('#country').removeClass('fav')
-
       let indexOfCurrent = savedFavorites.indexOf(currentCountry)
       savedFavorites.splice(indexOfCurrent, 1)
     }
-
-      // for (var key in favorites) {
-      //   let indexOfFalsey
-      //   if (favorites[key] === true && !favoritesArray.includes(key)) {
-      //     savedFavorites.push(key)
-      //     favoritesArray.push(key)
-      //   } else if (favorites[key] === false && favoritesArray.includes(key)) {
-      //     indexOfFalsey = favoritesArray.indexOf(key)
-      //     favoritesArray.splice(indexOfFalsey, 1)
-      //   }
-      // }
-
       localStorage.setItem('favorites', JSON.stringify(savedFavorites))
   })
 })

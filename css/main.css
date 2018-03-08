@@ -170,11 +170,6 @@ main {
   cursor: pointer;
 }
 
-/* #country:hover:after {
-  content: ' \2605';
-  cursor: pointer;
-} */
-
 #country.fav:after {
   content: ' \2605';
 }
