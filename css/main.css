@@ -75,10 +75,16 @@ main {
   color: white;
   position: absolute;
   bottom: 25px;
-  left: 15px;
+  left: 70%;
   opacity: .6;
-  border: 2px solid white;
 }
+
+@media(min-width: 1024px){
+  .button-collapse{
+    left: 90%;
+  }
+}
+
 
 .button-collapse:hover {
   opacity: 1;
@@ -172,4 +178,8 @@ main {
 
 #country.fav:after {
   content: ' \2605';
+}
+
+#your-favs li {
+  cursor: pointer;
 }

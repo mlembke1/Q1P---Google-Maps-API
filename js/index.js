@@ -6,6 +6,7 @@ let currentCountry = null
 let currentCapital = null
 let favorites = {}
 let savedFavorites = JSON.parse(localStorage.getItem('favorites')) || []
+let favLocation
 
 
 
@@ -339,7 +340,7 @@ function initAutocomplete() {
         $('#todays-low').text(`${low}`)
         $('#currently').text(` ${currentWeather}`)
 
-        // WHEN A DIFFERENCE RADIO BUTTON IS SELECTED
+        // WHEN A DIFFERENT RADIO BUTTON IS SELECTED
         // CHANGE THE UNITS.
         $(unitContainer).change(() => {
           let selectedUnit = $('input:checked').val()
@@ -379,6 +380,14 @@ function initAutocomplete() {
     map.fitBounds(bounds);
     $('.button-collapse').sideNav('show');
   })
+
+  //CLICK ON FAVORITE AND POPULATE
+  $('#your-favs').click((event) => {
+     favLocation = $(event.target).text()
+     $('#pac-input').val(favLocation)
+
+
+  })
 }
 
 $(document).ready(function() {
@@ -417,4 +426,6 @@ $(document).ready(function() {
         $('#your-favs').append($(`<li>${el}</li>`))
       }
   })
+
+
 })

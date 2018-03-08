@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -16,7 +17,8 @@
 <body>
   <input id="pac-input" type="search" placeholder="Enter a country" autofocus>
 
-  <div id="map"></div>
+  <div id="map">
+  </div>
 
   <ul id="slide-out" class="side-nav">
     <li class='sidebar-header'>
@@ -48,8 +50,10 @@
 
 
   </ul>
-      <a href='welcome.html' class="btn-floating button-collapse-1 btn-large waves-effect waves-light"><</a>
-      <a data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">+</a>
+      <!-- <a href='welcome.html' class="btn-floating button-collapse-1 btn-large waves-effect waves-light"><</a> -->
+      <a data-activates="slide-out" class="btn-floating button-collapse btn-large waves-effect waves-light">
+        <i class="material-icons large">arrow_back</i>
+      </a>
       <footer class="page-footer">
         <div class="container">
           <div class="row">
