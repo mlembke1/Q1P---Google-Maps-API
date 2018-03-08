@@ -2,9 +2,12 @@ let countryAbbreviations = {}
 let countryCapitals = {}
 const country = $('#country')
 const capital = $('#capital')
-let favorites = {}
 let currentCountry = null
 let currentCapital = null
+let favorites = {}
+let favoritesArray = []
+let savedFavorites = JSON.parse(localStorage.getItem('favorites')) || []
+
 
 
 // FUNCTIONS TO CONVERT TEMPERATURES
@@ -302,7 +305,7 @@ function initAutocomplete() {
       capital.text(currentCapital)
 
 
-      let savedFavorites = JSON.parse(localStorage.getItem('favorites'))
+
 
       if (!savedFavorites.includes(currentCountry)) {
         $('#country').removeClass('fav')
@@ -373,9 +376,6 @@ function initAutocomplete() {
   })
 }
 
-
-
-
 $(document).ready(function() {
   $('.button-collapse').sideNav({
     menuWidth: 275, // Default is 300
@@ -384,26 +384,34 @@ $(document).ready(function() {
     draggable: true // Choose whether you can drag to open on touch screens
   })
 
-
   // SETTING LOCAL STORAGE
-  let favoritesArray = []
+
   $('#country').click(() => {
-    if (favorites[currentCountry] !== true) {
+
+    if (favorites[currentCountry] !== true && !savedFavorites.includes(currentCountry)) {
       favorites[currentCountry] = true
       $('#country').addClass('fav')
+
+      savedFavorites.push(currentCountry)
     } else {
       favorites[currentCountry] = false
       $('#country').removeClass('fav')
+
+      let indexOfCurrent = savedFavorites.indexOf(currentCountry)
+      savedFavorites.splice(indexOfCurrent, 1)
     }
-    for (var key in favorites) {
-      let indexOfFalsey
-      if(favorites[key] === true && !favoritesArray.includes(key)) {
-        favoritesArray.push(key)
-      } else if (favorites[key] === false && favoritesArray.includes(key)){
-        indexOfFalsey = favoritesArray.indexOf(key)
-        favoritesArray.splice(indexOfFalsey, 1)
-      }
-    }
-    localStorage.setItem('favorites', JSON.stringify(favoritesArray))
+
+      // for (var key in favorites) {
+      //   let indexOfFalsey
+      //   if (favorites[key] === true && !favoritesArray.includes(key)) {
+      //     savedFavorites.push(key)
+      //     favoritesArray.push(key)
+      //   } else if (favorites[key] === false && favoritesArray.includes(key)) {
+      //     indexOfFalsey = favoritesArray.indexOf(key)
+      //     favoritesArray.splice(indexOfFalsey, 1)
+      //   }
+      // }
+
+      localStorage.setItem('favorites', JSON.stringify(savedFavorites))
   })
 })
