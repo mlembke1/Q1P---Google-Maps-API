@@ -18,7 +18,7 @@ body {
 h1 {
   font-family: 'Pacifico', cursive;
   color: white;
-  font-size: 7rem;
+  font-size: 13rem;
 }
 
 .btn-large {
@@ -29,9 +29,10 @@ h1 {
 footer.page-footer {
   background-color: tomato;
   font-family: 'Pompiere', cursive;
+  font-size: 3rem;
 }
 
-@media (max-width: 768px){
+@media (min-width: 768px){
   footer.page-footer {
     font-size: 2rem;
   }

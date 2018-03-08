@@ -5,7 +5,6 @@ const capital = $('#capital')
 let currentCountry = null
 let currentCapital = null
 let favorites = {}
-let favoritesArray = []
 let savedFavorites = JSON.parse(localStorage.getItem('favorites')) || []
 
 
@@ -390,8 +389,13 @@ $(document).ready(function() {
     draggable: true // Choose whether you can drag to open on touch screens
   })
 
-  // SETTING LOCAL STORAGE
 
+  $('#your-favs').html('')
+  for(let el of savedFavorites){
+    $('#your-favs').append($(`<li>${el}</li>`))
+  }
+
+  // SETTING LOCAL STORAGE
   $('#country').click(() => {
 
     // Check if the current country has been saved as a favorite, if not
