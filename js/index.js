@@ -394,10 +394,13 @@ $(document).ready(function() {
 
   $('#country').click(() => {
 
+    // Check if the current country has been saved as a favorite, if not
+    // then save it
     if (favorites[currentCountry] !== true && !savedFavorites.includes(currentCountry)) {
       favorites[currentCountry] = true
       $('#country').addClass('fav')
       savedFavorites.push(currentCountry)
+
     } else {
       favorites[currentCountry] = false
       $('#country').removeClass('fav')
@@ -405,5 +408,9 @@ $(document).ready(function() {
       savedFavorites.splice(indexOfCurrent, 1)
     }
       localStorage.setItem('favorites', JSON.stringify(savedFavorites))
+      $('#your-favs').html('')
+      for(let el of savedFavorites){
+        $('#your-favs').append($(`<li>${el}</li>`))
+      }
   })
 })
