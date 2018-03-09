@@ -13,7 +13,7 @@ let favLocation
 // FUNCTIONS TO CONVERT TEMPERATURES
 const math = {
   fromKtoC: num => Math.ceil(num - 273.15),
-  fromKtoF: num => Math.ceil(num * (9/5) - 459.67)
+  fromKtoF: num => Math.ceil(num * (9/5) - 459.67),
 }
 
 
