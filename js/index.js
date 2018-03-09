@@ -411,12 +411,24 @@ $(document).ready(function() {
       favorites[currentCountry] = true
       $('#country').addClass('fav')
       savedFavorites.push(currentCountry)
+      spop({
+      	template: 'Added to favorites!',
+      	position  : 'top-right',
+      	style: 'success',
+        autoclose: 1000
+      })
 
     } else {
       favorites[currentCountry] = false
       $('#country').removeClass('fav')
       let indexOfCurrent = savedFavorites.indexOf(currentCountry)
       savedFavorites.splice(indexOfCurrent, 1)
+
+      spop({
+      	template: 'Removed from favorites',
+      	position  : 'top-right',
+        autoclose: 1000
+      })
     }
       localStorage.setItem('favorites', JSON.stringify(savedFavorites))
       $('#your-favs').html('')
