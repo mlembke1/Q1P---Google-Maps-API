@@ -74,8 +74,8 @@ main {
   background-color: tomato;
   color: white;
   position: absolute;
-  /* bottom: 25px; */
-  left: 70%;
+  top: 4%;
+  left: 7%;
   opacity: .6;
 }
 

@@ -1,62 +1,23 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Explore</title>
+    <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/welcome.css">
+  </head>
+  <body>
+    <main class='valign-wrapper'>
+      <div class="row center">
+       <div class="col s12"><h1>Explore</h1></div>
+       <div class="divider"></div>
+       <div class="col s12 center"><a href="main.html" class="waves-effect waves-light btn-large green">Go</a></div>
+     </div>
+   </main>
 
-<head>
-  <title>Country Data</title>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body>
-  <input id="pac-input" type="search" placeholder="Enter a country" autofocus>
-
-  <div id="map">
-  </div>
-
-  <ul id="slide-out" class="side-nav">
-    <li class='sidebar-header'>
-      <h5>Country Info</h5>
-      <a data-activates="slide-out" id= 'push-in' class="btn-floating button-collapse btn-large waves-effect waves-light">
-        <i class="material-icons large">arrow_forward</i>
-      </a>
-    </li>
-    <li>Country: <span id='country'></span></li>
-    <li>Capital: <span id='capital'></span></li>
-    <li class='sidebar-header'>
-      <h5>Current Weather</h5>
-    </li>
-    <div id='unitContainer' class="row">
-      <input value='k' name="unit-type" checked type="radio" id="k" />
-      <label for="k">K˚</label>
-      <input value='c' name="unit-type" type="radio" id="c" />
-      <label for="c">C˚</label>
-      <input value='r' name="unit-type" checked type="radio" id="r" />
-      <label for="r">R˚</label>
-      <input value='f' name="unit-type" type="radio" id="f" />
-      <label for="f">F˚</label>
-    </div>
-    <li>Current Temp: <span id='current-temp'></span></li>
-    <li>Today's High: <span id='todays-high'></span></li>
-    <li>Today's Low: <span id='todays-low'></span></li>
-    <li>Currently <span id='currently'></span></li>
-    <li class='sidebar-header'>
-      <h5>Your Favorites</h5>
-    </li>
-    <ul id= 'your-favs'></ul>
-
-
-  </ul>
-      <a data-activates="slide-out" id = 'push-out' class="btn-floating button-collapse btn-large waves-effect waves-light">
-        <i class="material-icons large">arrow_back</i>
-      </a>
-      <footer class="page-footer">
+   <footer class="page-footer">
         <div class="container">
           <div class="row">
             <div class="col l6 s6">
@@ -74,15 +35,11 @@
         </div>
         <div class="footer-copyright">
           <div class="container">
-            Mitch Lembke 2018
+          Mitch Lembke 2018
           </div>
         </div>
       </footer>
-      <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
-      </script>
-      <script src='js/index.js'></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgbLAGM3_UdMiA55ycdykyS0iTjDdZLq0&libraries=places&callback=initAutocomplete" async defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-</body>
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </body>
 </html>
