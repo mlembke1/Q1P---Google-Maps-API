@@ -404,7 +404,7 @@ $(document).ready(function() {
       	template: 'Added to favorites!',
       	position  : 'top-right',
       	style: 'success',
-        autoclose: 1000
+        autoclose: 1500
       })
 
     } else {
@@ -416,7 +416,7 @@ $(document).ready(function() {
       spop({
       	template: 'Removed from favorites',
       	position  : 'top-right',
-        autoclose: 1000
+        autoclose: 1500
       })
     }
       localStorage.setItem('favorites', JSON.stringify(savedFavorites))
