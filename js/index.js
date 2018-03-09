@@ -385,8 +385,6 @@ function initAutocomplete() {
   $('#your-favs').click((event) => {
      favLocation = $(event.target).text()
      $('#pac-input').val(favLocation)
-
-
   })
 }
 

@@ -70,7 +70,17 @@ main {
   text-align: center;
 }
 
-.button-collapse {
+#push-in {
+  background-color: tomato;
+  color: white;
+  position: absolute;
+  /* bottom: 25px; */
+  left: 70%;
+  opacity: .6;
+}
+
+
+#push-out {
   background-color: tomato;
   color: white;
   position: absolute;
@@ -80,28 +90,13 @@ main {
 }
 
 @media(min-width: 1024px){
-  .button-collapse{
+  #push-out{
     left: 90%;
   }
 }
 
 
 .button-collapse:hover {
-  opacity: 1;
-  background-color: tomato;
-}
-
-.button-collapse-1 {
-  background-color: tomato;
-  color: white;
-  position: absolute;
-  bottom: 100px;
-  left: 15px;
-  opacity: .6;
-  border: 2px solid white;
-}
-
-.button-collapse-1:hover {
   opacity: 1;
   background-color: tomato;
 }
