@@ -12,9 +12,8 @@ let favLocation
 
 // FUNCTIONS TO CONVERT TEMPERATURES
 const math = {
-  fromKtoF: num => Math.ceil((num * (9 / 5)) - 459.67),
-  fromKtoC: num => Math.ceil((num - 273.15)),
-  fromKtoR: num => Math.ceil((num * (9/5)))
+  fromKtoC: num => Math.ceil(num - 273.15),
+  fromKtoF: num => Math.ceil(num * (9/5) - 459.67)
 }
 
 
@@ -328,10 +327,10 @@ function initAutocomplete() {
         $('#k').prop('checked', true);
         const unitContainer = $('#unitContainer')[0]
 
-        // DEFAULT TEMPERATURE UNIT SELECTED IS K
-        let currentTemp = `${Math.ceil(data.main.temp)}˚K`
-        let low = `${Math.ceil(data.main.temp_min)}˚K`
-        let high = `${Math.ceil(data.main.temp_max)}˚K`
+        // DEFAULT TEMPERATURE UNIT SELECTED IS C˚
+        let currentTemp = `${math.fromKtoC(data.main.temp)}˚C`
+        let low = `${math.fromKtoC(data.main.temp_min)}˚C`
+        let high = `${math.fromKtoC(data.main.temp_max)}˚C`
         let currentWeather = data.weather[0].main
 
         // ADD DEFAULT TEMPERATURES TO HTML
@@ -353,16 +352,6 @@ function initAutocomplete() {
             currentTemp = `${math.fromKtoC(data.main.temp)}˚C`
             low = `${math.fromKtoC(data.main.temp_min)}˚C`
             high = `${math.fromKtoC(data.main.temp_max)}˚C`
-          }
-          if (selectedUnit === 'k') {
-            currentTemp = `${Math.ceil(data.main.temp)}˚K`
-            low = `${Math.ceil(data.main.temp_min)}˚K`
-            high = `${Math.ceil(data.main.temp_max)}˚K`
-          }
-          if (selectedUnit === 'r') {
-            currentTemp = `${math.fromKtoR(data.main.temp)}˚R`
-            low = `${math.fromKtoR(data.main.temp_min)}˚R`
-            high = `${math.fromKtoR(data.main.temp_max)}˚R`
           }
 
           $('#current-temp').text(`${currentTemp}`)
