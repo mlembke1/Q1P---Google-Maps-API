@@ -28,7 +28,11 @@ $xhr.done(function(data) {
   }
 });
 $xhr.fail(function(err) {
-  console.log(err);
+  spop({
+    template: 'Whoops, something went wrong. Please try again later!',
+    position  : 'top-right',
+    style: 'error',
+  })
 });
 
 ///////////////GET COUNTRY CAPLITALS/////////
@@ -43,7 +47,11 @@ $xhr2.done(function(data) {
 });
 
 $xhr2.fail(function(err) {
-  console.log(err);
+  spop({
+    template: 'Whoops, something went wrong. Please try again later!',
+    position  : 'top-right',
+    style: 'error',
+  })
 });
 
 // GOOGLE MAPS VOODOO
@@ -363,7 +371,11 @@ function initAutocomplete() {
 
       })
       $xhr3.fail(function(err) {
-        console.log(err);
+        spop({
+          template: 'Whoops, something went wrong. Please try again later!',
+          position  : 'top-right',
+          style: 'error',
+        })
       });
     })
     map.fitBounds(bounds);
